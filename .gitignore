@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,macos,visualstudiocode,windows,git
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,visualstudiocode,windows,git
+# Created by https://www.toptal.com/developers/gitignore/api/node,macos,windows,git
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,windows,git
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -154,18 +154,6 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -192,4 +180,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,macos,visualstudiocode,windows,git
+build
+
+# End of https://www.toptal.com/developers/gitignore/api/node,macos,windows,git
+
