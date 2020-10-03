@@ -1,9 +1,7 @@
-const methods = require("../../db/client/methods");
-
 module.exports = {
   Mutation: {
-    addClient: (_, { client = {} }) => {
-      return methods.save(client);
+    addClient: (_, { client = {} }, { Client }) => {
+      return Client.save(client);
     },
   },
   Query: {

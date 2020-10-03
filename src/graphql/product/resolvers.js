@@ -1,5 +1,3 @@
-const { UserInputError } = require("apollo-server");
-
 let products = [
   {
     id: 1,
@@ -15,14 +13,13 @@ let products = [
 
 module.exports = {
   Query: {
-    products: () => products,
+    products: (info, args, { Product }) => Product.get(),
     product: (info, args, context) =>
       products.find((prod) => prod.id === args.id),
   },
   Mutation: {
-    addProduct: (info, args, context) => {
-      products.push(args.product);
-      return product[product.lenght - 1];
+    addProduct: (info, args, { Product }) => {
+      return Product.save(args.product);
     },
   },
 };
