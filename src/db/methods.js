@@ -41,7 +41,7 @@ module.exports = function (Model) {
         return error;
       }
     },
-    async getBy(filter = {}) {
+    async get(filter = {}) {
       try {
         let result = Model.find(filter).sort({ index: 1 });
 

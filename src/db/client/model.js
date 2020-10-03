@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ClientSchema = new Schema(
   {
     name: {
-      type: NumbStringer,
+      type: String,
       required: true,
     },
     lastName: {
