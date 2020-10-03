@@ -1,0 +1,42 @@
+
+type Query {
+clients: [Client]
+}
+
+type Client{
+id:ID!
+name:String!
+telefono: Int
+email:String
+}
+
+type Product{
+id:ID!
+description:String!
+cost: Int!
+price:Int!
+}
+
+input ClientInput{
+id:ID!
+name:String!
+telefono: Int
+email:String
+}
+
+input ProductInput{
+id:ID!
+description:String!
+cost: Int
+price:String
+}
+
+
+type Mutation{
+addClient(client:ClientInput!):Client
+addProduct(product:ProductInput!):Product
+}
+
+
+
+
