@@ -1,3 +1,33 @@
+
+
 type Query {
   hello: String
 }
+
+type Query {
+clients: [Client]
+}
+
+type Client{
+id:ID!
+name:String!
+telefono: Int
+email:String
+}
+
+input ClientInput{
+id:ID!
+name:String!
+telefono: Int
+email:String
+}
+
+
+
+type Mutation{
+addClient(client:ClientInput!):Client
+}
+
+
+
+
