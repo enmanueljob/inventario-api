@@ -14,8 +14,7 @@ let products = [
 module.exports = {
   Query: {
     products: (info, args, { Product }) => Product.get(),
-    product: (info, args, context) =>
-      products.find((prod) => prod.id === args.id),
+    product: async (info, {id}, { Product }) => Product.getById(id)
   },
   Mutation: {
     addProduct: (info, args, { Product }) => {

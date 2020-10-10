@@ -34,9 +34,9 @@ module.exports = function (Model) {
     },
     async getById(id) {
       try {
-        let client = await Model.findById(id);
+        let res = await Model.findById(id);
 
-        return client;
+        return res;
       } catch (error) {
         return error;
       }
