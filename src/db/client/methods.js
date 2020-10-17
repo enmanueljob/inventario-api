@@ -1,4 +1,4 @@
-const Client = require("./model");
+const Inventory = require("./model");
 const methods = require("../methods");
 
-module.exports = methods(Client);
+module.exports = methods(Inventory);
