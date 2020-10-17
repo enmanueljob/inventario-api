@@ -9,6 +9,8 @@ const resolvers = require("./importResolvers");
 
 mongoose.connect(`${process.env.DB_HOST}/${process.env.DB_NAME}`);
 
+const PORT = process.env.PORT || 4000
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -18,6 +20,6 @@ const server = new ApolloServer({
   },
 });
 
-server.listen().then((res) => {
+server.listen({ port: PORT }).then((res) => {
   console.log(`🚀 Server ready at ${res.url}`);
 });
