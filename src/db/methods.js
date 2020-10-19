@@ -2,23 +2,23 @@ module.exports = function (Model) {
   return {
     async save(data = {}) {
       try {
-        const client = new Model(data);
+        const entity = new Model(data);
 
-        const clientSaved = await client.save();
+        const entitySaved = await entity.save();
 
-        return clientSaved;
+        return entitySaved;
       } catch (error) {
         return error;
       }
     },
     async update(data = {}) {
       try {
-        let courseUpdated = await Model.findOneAndUpdate(
+        let entityUpdated = await Model.findOneAndUpdate(
           { _id: update.id },
           { $set: data },
           { new: true }
         );
-        return courseUpdated;
+        return entityUpdated;
       } catch (error) {
         return error;
       }
@@ -34,18 +34,18 @@ module.exports = function (Model) {
     },
     async getById(id) {
       try {
-        let res = await Model.findById(id);
+        let entity = await Model.findById(id);
 
-        return res;
+        return entity;
       } catch (error) {
         return error;
       }
     },
     async get(filter = {}) {
       try {
-        let result = Model.find(filter).sort({ index: 1 });
+        let entities = Model.find(filter).sort({ index: 1 });
 
-        return result;
+        return entities;
       } catch (error) {
         return error;
       }
