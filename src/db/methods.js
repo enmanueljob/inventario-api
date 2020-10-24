@@ -14,7 +14,7 @@ module.exports = function (Model) {
     async update(data = {}) {
       try {
         let entityUpdated = await Model.findOneAndUpdate(
-          { _id: update.id },
+          { _id: data.id },
           { $set: data },
           { new: true }
         );
@@ -33,9 +33,8 @@ module.exports = function (Model) {
       }
     },
     async getById(id) {
-      try {
+      try 
         let entity = await Model.findById(id);
-
         return entity;
       } catch (error) {
         return error;

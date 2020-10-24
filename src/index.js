@@ -7,7 +7,9 @@ require("dotenv").config();
 const typeDefs = require("./typeDefs");
 const resolvers = require("./importResolvers");
 
-mongoose.connect(`${process.env.DB_HOST}/${process.env.DB_NAME}`);
+mongoose.connect(`${process.env.DB_HOST}/${process.env.DB_NAME}`,{useNewUrlParser:true});
+// mongoose.connect('mongodb+srv://admin:admin123@cluster0.u0w2x.mongodb.net/dev',{useNewUrlParser:true},{ useUnifiedTopology: true });
+
 
 const PORT = process.env.PORT || 4000
 
