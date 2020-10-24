@@ -13,7 +13,6 @@ module.exports = function (Model) {
     },
     async update(data = {}) {
       try {
-        console.log(data);
         let entityUpdated = await Model.findOneAndUpdate(
           { _id: data.id },
           { $set: data },
@@ -34,18 +33,18 @@ module.exports = function (Model) {
       }
     },
     async getById(id) {
-      try {
-        let res = await Model.findById(id);
-        return res;
+      try 
+        let entity = await Model.findById(id);
+        return entity;
       } catch (error) {
         return error;
       }
     },
     async get(filter = {}) {
       try {
-        let result = Model.find(filter).sort({ index: 1 });
+        let entities = Model.find(filter).sort({ index: 1 });
 
-        return result;
+        return entities;
       } catch (error) {
         return error;
       }
