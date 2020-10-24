@@ -2,23 +2,24 @@ module.exports = function (Model) {
   return {
     async save(data = {}) {
       try {
-        const client = new Model(data);
+        const entity = new Model(data);
 
-        const clientSaved = await client.save();
+        const entitySaved = await entity.save();
 
-        return clientSaved;
+        return entitySaved;
       } catch (error) {
         return error;
       }
     },
     async update(data = {}) {
       try {
-        let courseUpdated = await Model.findOneAndUpdate(
-          { _id: update.id },
+        console.log(data);
+        let entityUpdated = await Model.findOneAndUpdate(
+          { _id: data.id },
           { $set: data },
           { new: true }
         );
-        return courseUpdated;
+        return entityUpdated;
       } catch (error) {
         return error;
       }
@@ -35,7 +36,6 @@ module.exports = function (Model) {
     async getById(id) {
       try {
         let res = await Model.findById(id);
-
         return res;
       } catch (error) {
         return error;
