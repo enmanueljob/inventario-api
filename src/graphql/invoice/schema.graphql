@@ -1,0 +1,21 @@
+type Invoice {
+  id: ID!
+  total: Float
+  state: Float
+}
+
+input InvoiceInput {
+  id: ID
+  total: Float!
+  state: Float!
+}
+
+type Query {
+  invoices: [Invoice]
+  invoice(id: ID!): Invoice!
+}
+
+type Mutation {
+  addInvoice(invoice: InvoiceInput!): Invoice
+  updateInvoice(invoice: InvoiceInput!): Invoice
+}
