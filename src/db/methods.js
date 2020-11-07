@@ -1,4 +1,4 @@
-module.exports = function (Model) {
+module.exports = function(Model) {
   return {
     async save(data = {}) {
       try {
@@ -33,7 +33,7 @@ module.exports = function (Model) {
       }
     },
     async getById(id) {
-      try 
+      try {
         let entity = await Model.findById(id);
         return entity;
       } catch (error) {
