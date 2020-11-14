@@ -2,12 +2,14 @@ type Invoice {
   id: ID!
   total: Float
   state: Float
+  detail:[InvoiceDetail!]
 }
 
 input InvoiceInput {
   id: ID
   total: Float!
   state: Float!
+  detail:[InvoiceDetailInput!]!
 }
 
 type Query {

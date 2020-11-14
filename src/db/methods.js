@@ -49,5 +49,13 @@ module.exports = function(Model) {
         return error;
       }
     },
+
+    async insertMany (rows=[]){
+      try {
+        return Model.insertMany(rows);
+      } catch (error) {
+        return error;
+      }
+    }
   };
 };
