@@ -10,7 +10,7 @@ module.exports = {
 
         const products = [...args.invoice.detail];
         
-        delete args.invoice.detail;
+        delete args.invoice.detail; 
 
         const invoice = await Invoice.save(args.invoice);
 

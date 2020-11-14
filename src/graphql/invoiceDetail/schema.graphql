@@ -8,10 +8,11 @@ type InvoiceDetail {
   discount: Float
   tax: Float
   total: Float
+  product: Product!
 }
 
 input InvoiceDetailInput {
-  id: ID
+  id: ID    
   invoiceID: ID
   productID: ID!
   price: Float!

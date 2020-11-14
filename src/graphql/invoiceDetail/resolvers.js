@@ -12,4 +12,10 @@ module.exports = {
         return InvoiceDetail.update(args.invoiceDetail);
       }
     },
+
+    InvoiceDetail:{
+      product:(info,args,{Product})=>{
+      return Product.getById(info.productID);
+      }
+    }
   };
