@@ -1,4 +1,4 @@
-module.exports = function(Model) {
+module.exports = function (Model) {
   return {
     async save(data = {}) {
       try {
@@ -40,9 +40,12 @@ module.exports = function(Model) {
         return error;
       }
     },
-    async get(filter = {}) {
+    async get(filter = {}, options = {}) {
       try {
-        let entities = Model.find(filter).sort({ index: 1 });
+        let entities = Model.find(filter)
+          .skip(options.offset || 0)
+          .limit(options.limit || 0)
+          .sort({ index: 1 });
 
         return entities;
       } catch (error) {
@@ -50,12 +53,12 @@ module.exports = function(Model) {
       }
     },
 
-    async insertMany (rows=[]){
+    async insertMany(rows = []) {
       try {
         return Model.insertMany(rows);
       } catch (error) {
         return error;
       }
-    }
+    },
   };
 };

@@ -1,10 +1,15 @@
-const path = require("path");
-
 const { mergeResolvers } = require("@graphql-tools/merge");
-const { loadFilesSync } = require("@graphql-tools/load-files");
 
-const resolversArray = loadFilesSync(
-  path.join(__dirname, "./graphql/**/resolvers.js")
-);
+const clientResolvers = require("./graphql/client/resolvers");
+const invoiceResolvers = require("./graphql/invoice/resolvers");
+const invoiceDetailResolvers = require("./graphql/invoiceDetail/resolvers");
+const productlResolvers = require("./graphql/product/resolvers");
+
+const resolversArray = [
+  clientResolvers,
+  invoiceResolvers,
+  invoiceDetailResolvers,
+  productlResolvers,
+];
 
 module.exports = mergeResolvers(resolversArray);

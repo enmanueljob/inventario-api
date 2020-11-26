@@ -13,8 +13,11 @@
 
 module.exports = {
   Query: {
-    products: (info, args, { Product }) => Product.get(),
-    product: async (info, {id}, { Product }) => Product.getById(id)
+    products: async (info, args, { Product }) => {
+      const results = await Product.get({}, args.pagination);
+      return { results };
+    },
+    product: (info, { id }, { Product }) => Product.getById(id),
   },
   Mutation: {
     addProduct: (info, args, { Product }) => {
@@ -23,6 +26,6 @@ module.exports = {
     updateProduct: (info, args, { Product }) => {
       console.log(Product);
       return Product.update(args.product);
-    }
+    },
   },
 };
