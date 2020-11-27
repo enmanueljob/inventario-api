@@ -21,7 +21,6 @@ module.exports = gql`
     offset: Int
     total: Int
     limit: Int
-    count: Int
     results: [Product]
   }
 

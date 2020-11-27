@@ -14,8 +14,8 @@
 module.exports = {
   Query: {
     products: async (info, args, { Product }) => {
-      const results = await Product.get({}, args.pagination);
-      return { results };
+      const { docs: results, ...rest } = await Product.get({}, args.pagination);
+      return { results, ...rest };
     },
     product: (info, { id }, { Product }) => Product.getById(id),
   },

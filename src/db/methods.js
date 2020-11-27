@@ -40,14 +40,20 @@ module.exports = function (Model) {
         return error;
       }
     },
-    async get(filter = {}, options = {}) {
+    async get(filter = {}, pagination = {}) {
       try {
-        let entities = Model.find(filter)
-          .skip(options.offset || 0)
-          .limit(options.limit || 0)
-          .sort({ index: 1 });
+        // Paginacion sin librerias ademas de mongoose
+        // let result = Model.find(filter)
+        //   .skip(options.offset || 0)
+        //   .limit(options.limit || 0)
+        //   .sort({ index: 1 });
 
-        return entities;
+        const options = {
+          page: 1,
+          ...pagination,
+        };
+        const result = await Model.paginate({}, options);
+        return result;
       } catch (error) {
         return error;
       }

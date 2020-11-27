@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate");
 
 const Schema = mongoose.Schema;
 
@@ -10,7 +11,7 @@ const ProductSchema = new Schema(
     },
     price: Number,
     quantity: Number,
-    totalStock: Number
+    totalStock: Number,
   },
   {
     /**
@@ -19,5 +20,7 @@ const ProductSchema = new Schema(
     timestamps: true,
   }
 );
+
+ProductSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("product", ProductSchema);
