@@ -12,5 +12,6 @@ module.exports = gql`
     total: Int
     limit: Int
     page: Int
+    pages: Int
   }
 `;
