@@ -15,8 +15,15 @@ module.exports = gql`
     detail: [InvoiceDetailInput!]!
   }
 
+  type InvoiceConnection implements PaginationResponse {
+    offset: Int
+    total: Int
+    limit: Int
+    results: [Invoice]
+  }
+
   type Query {
-    invoices: [Invoice]
+    invoices(pagination: PaginationInput): InvoiceConnection
     invoice(id: ID!): Invoice!
   }
 

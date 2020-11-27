@@ -40,7 +40,15 @@ module.exports = function (Model) {
         return error;
       }
     },
-    async get(filter = {}, pagination = {}) {
+    async get(filter = {}) {
+      try {
+        let results = Model.find(filter);
+        return results;
+      } catch (error) {
+        return error;
+      }
+    },
+    async paginate(filter = {}, pagination = {}) {
       try {
         // Paginacion sin librerias ademas de mongoose
         // let result = Model.find(filter)
@@ -58,7 +66,6 @@ module.exports = function (Model) {
         return error;
       }
     },
-
     async insertMany(rows = []) {
       try {
         return Model.insertMany(rows);
