@@ -35,4 +35,8 @@ module.exports = gql`
     addProduct(product: ProductInput!): Product
     updateProduct(product: ProductInput!): Product
   }
+
+  type Subscription {
+    productAdded: Product
+  }
 `;
